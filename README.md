@@ -219,7 +219,8 @@ HeaderIP->Protocol);
        l’interface ETHERNET ou sans fil.
        
        ADDRESSE IP FOURNIT PAR DEFAUT
-       ![image](https://user-images.githubusercontent.com/96391221/146845710-91417a0e-4ac6-4851-8766-3db31793f062.
+ ![image](https://user-images.githubusercontent.com/96391221/146846007-d89bfa92-a30b-4096-9bc3-eb4b6f46b436.png)
+
    
    
    2) Lancez des applications d’échange de trafic entre d'autres machines et la votre. Observez les
