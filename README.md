@@ -213,12 +213,21 @@ HeaderIP->Protocol);
  return EXIT_SUCCESS;
 }
 ```
+### Partie2 :## manipulation de sniffers 
+    Dans cette partie, nous nous intéressons à la manipulation de quelques sniffers existants. 
+    1) Lancer le logiciel wireshark en arrière plan (wireshark &) et commencez la capture sur
+       l’interface ETHERNET ou sans fil.
+       
+       //ADDRESSE IP FOURNIT PAR DEFAUT
+       ![image](https://user-images.githubusercontent.com/96391221/146845710-91417a0e-4ac6-4851-8766-3db31793f062.
    
    
-   
-   
-   
-   ```
+   2) Lancez des applications d’échange de trafic entre d'autres machines et la votre. Observez les
+      paquets capturés.
+      ![image](https://user-images.githubusercontent.com/96391221/146845862-20443437-d814-42d6-b6b2-bba6f7c5271e.png)
+
+
+  
 
 
 
