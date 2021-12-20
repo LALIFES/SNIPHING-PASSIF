@@ -78,7 +78,7 @@ fonction main):
 5) Ecrire une fonction qui permet d’afficher l’entête UDP et l’intégrer dans le code source du
    sniffer (localiser udp.h dans /usr/include/netinet). 
    ##udp.h
-   ```cpp
+   
    
 #include <cstdlib>
 #include <iostream>
@@ -119,7 +119,7 @@ typedef struct tcphdr // Entete TCP
  unsigned short checksum;
  unsigned short urgPointer;
 } TCP_HDR;
-  ```
+  
 
 int main(int argc, char *argv[])
 {
