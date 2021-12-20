@@ -12,23 +12,25 @@ CLI : Command Line Interface)
 ***
 ![image](https://user-images.githubusercontent.com/96391221/146802720-f233c4ab-9d1b-422f-9e87-8d889f4a9f35.png)
 1- Objectifs de ce TP:
-- Implémenter un sniffer passif simple
+
+  - Implémenter un sniffer passif simple
 - Manipuler des logiciels de sniffing
 2- Outils logiciels:
-Linux, wireshark, compilateur cc ou gcc
+  Linux, wireshark, compilateur cc ou gcc
+  
 3- Informations utiles :
-- Les cartes réseau fonctionnent en deux modes
+ - Les cartes réseau fonctionnent en deux modes
 o mode normal (mode par défaut) : permet à une carte de filtrer les trames reçus
 en fonction de l'adresse MAC destination
 o mode promiscuous : consiste à accepter toutes les trames circulant dans un
 réseau, même ceux qui ne sont pas destinés à la carte.
-- Sous Unix, la commande # ifconfig promisc permet d’activer le mode promiscuous.
-- La plupart des logiciels sniffers permettent d’activer le mode promoscuous lors de
+ - Sous Unix, la commande # ifconfig promisc permet d’activer le mode promiscuous.
+ - La plupart des logiciels sniffers permettent d’activer le mode promoscuous lors de
 leur lancement.
-- Dans un réseau commuté, le sniffing passif de toutes les trames qui circulent dans le réseau
+ - Dans un réseau commuté, le sniffing passif de toutes les trames qui circulent dans le réseau
 est impossible àréaliser puisqu'un nœud ne peut recevoir que les trames qui lui sont
 destinées.
-- Le sniffing actif (qui sera traité au niveau du TP2) permet de faire du sniffing sur un
+ - Le sniffing actif (qui sera traité au niveau du TP2) permet de faire du sniffing sur un
 réseau même s'il est commuté.
 - Le sniffer doit être sur le même réseau à sniffer. Sinon, il doit faire du « remote sniffing »
 en contrôlant à distance une machine qui se trouve sur le réseau à sniffer.
