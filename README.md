@@ -218,7 +218,7 @@ HeaderIP->Protocol);
     1) Lancer le logiciel wireshark en arrière plan (wireshark &) et commencez la capture sur
        l’interface ETHERNET ou sans fil.
        
-       //ADDRESSE IP FOURNIT PAR DEFAUT
+       ADDRESSE IP FOURNIT PAR DEFAUT
        ![image](https://user-images.githubusercontent.com/96391221/146845710-91417a0e-4ac6-4851-8766-3db31793f062.
    
    
