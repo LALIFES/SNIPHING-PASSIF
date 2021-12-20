@@ -19,20 +19,37 @@ CLI : Command Line Interface)
   - Linux, wireshark, compilateur cc ou gcc
 # Informations utiles :
   - Les cartes réseau fonctionnent en deux modes
-o mode normal (mode par défaut) : permet à une carte de filtrer les trames reçus
-en fonction de l'adresse MAC destination o mode promiscuous : consiste à accepter toutes les trames circulant dans un
-réseau, même ceux qui ne sont pas destinés à la carte.
+   o mode normal (mode par défaut) : permet à une carte de filtrer les trames reçus
+   en fonction de l'adresse MAC destination o mode promiscuous : consiste à accepter toutes les trames circulant dans un
+   réseau, même ceux qui ne sont pas destinés à la carte.
  - Sous Unix, la commande # ifconfig promisc permet d’activer le mode promiscuous.
  - La plupart des logiciels sniffers permettent d’activer le mode promoscuous lors de
-leur lancement.
+   leur lancement.
  - Dans un réseau commuté, le sniffing passif de toutes les trames qui circulent dans le réseau
-est impossible àréaliser puisqu'un nœud ne peut recevoir que les trames qui lui sont
-destinées.
+   est impossible àréaliser puisqu'un nœud ne peut recevoir que les trames qui lui sont
+   destinées.
  - Le sniffing actif (qui sera traité au niveau du TP2) permet de faire du sniffing sur un
-réseau même s'il est commuté.
+   réseau même s'il est commuté.
  - Le sniffer doit être sur le même réseau à sniffer. Sinon, il doit faire du « remote sniffing »
-en contrôlant à distance une machine qui se trouve sur le réseau à sniffer.
+   en contrôlant à distance une machine qui se trouve sur le réseau à sniffer.
 # Partie 1 : # Implémentation d’un sniffer passif
+ L'annexe 1 présente le code source d’un sniffer passif qui permet de récupérer les trames reçu par une
+interface réseau (exemple ETHERNET). Ce code source est écrit en langage C et peut être compilé et
+exécuté sur une machine Linux. Les fonctions les plus importantes de ce code sont (voir contenu de la
+fonction main):
+ - La fonction recvfrom qui permet de récupérer les trames reçues sur l’interface réseau.
+ - La fonction PrintPacketInHex qui permet d’afficher la trame sous format hexadécimal
+ - La fonction ParseEthernetHeader qui permet d’afficher quelques champs de l’entête ETHRNET
+ - La fonction ParseIpHeader qui permet d’afficher quelques champs de l’entête IP
+ - La fonction ParseTcpHeader qui permet d’afficher quelques champs de l’entête TCP
+ - La fonction ParseData qui permet d’afficher les données sous format hexadécimal
+## Manipulations a faire (sous LINUX)
+  1) Compiler (cc -c sniffer_eth_ip_tcp_data.c) le code source et générer l’exécutable (cc
+  sniffer_eth_ip_tcp_data.c – o sniffer).
+  ***
+  ![image](https://user-images.githubusercontent.com/96391221/146825323-a1453193-fd50-443e-9fea-e56bc5a4e151.png)
+
+
 
 
 
