@@ -71,7 +71,7 @@ fonction main):
 ![image](https://user-images.githubusercontent.com/96391221/146826258-16041179-e4a2-4ecd-9526-df68e21708d6.png)
 
    ```Etape2```
-   ![image](https://user-images.githubusercontent.com/96391221/146837556-eeb13d23-f750-474f-92c9-31cdf54ac7ca.png)
+![image](https://user-images.githubusercontent.com/96391221/146837556-eeb13d23-f750-474f-92c9-31cdf54ac7ca.png)
 
    
      
