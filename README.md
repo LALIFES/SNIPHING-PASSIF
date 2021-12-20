@@ -67,7 +67,7 @@ fonction main):
    commentaires des fonctions correspondantes (au niveau de la fonction main), recompiler,
    régénérer l’exécutable et exécuter de nouveau le sniffer. Pensez à faire un échange de trafic
    TCP (en utilisant par exemple le serveur vsftpd ou en se connectant à Internet).  
-   *** Etape1***
+   ** Etape1
 ![image](https://user-images.githubusercontent.com/96391221/146826258-16041179-e4a2-4ecd-9526-df68e21708d6.png)
    
    
