@@ -75,6 +75,147 @@ fonction main):
 ![image](https://user-images.githubusercontent.com/96391221/146843690-4b4d6fd4-53ca-4407-8e77-db076772afe9.png)
    ```#E4```![image](https://user-images.githubusercontent.com/96391221/146844007-47747c45-0348-43cc-9123-ddfc3c349804.png)
    ```#E5```![image](https://user-images.githubusercontent.com/96391221/146844175-8b233398-8423-46c4-8deb-554be33d7cbd.png)
+5) Ecrire une fonction qui permet d’afficher l’entête UDP et l’intégrer dans le code source du
+   sniffer (localiser udp.h dans /usr/include/netinet).   
+   ```cpp
+   
+   #include <cstdlib>
+#include <iostream>
+#include <winsock2.h>
+#include <windows.h>
+#pragma comment(lib,"ws2_32.lib")
+#define SIO_RCVALL _WSAIOW(IOC_VENDOR,1)
+#define RCVALL_ON 1
+#define RCVALL_OFF 0
+using namespace std;
+typedef struct iphdr //Entete IP
+{
+ unsigned char IHL:4;
+ unsigned char Version :4;
+ unsigned char TypeOfService;
+ unsigned short TotalLength;
+ unsigned short ID;
+ unsigned char FlagOffset :5;
+ unsigned char MoreFragment :1;
+ unsigned char DontFragment :1;
+ unsigned char ReservedZero :1;
+ unsigned char FragOffset;
+ unsigned char Ttl;
+ unsigned char Protocol;
+ unsigned short Checksum;
+ unsigned int Source;
+ unsigned int Destination;
+}IP_HDR;
+typedef struct tcphdr // Entete TCP
+{
+ unsigned short PortSource;
+ unsigned short PortDest;
+ unsigned int seqnum;
+ unsigned int acknum;
+ unsigned char unused:4, tcp_hl:4;
+ unsigned char flags;
+ unsigned short window;
+ unsigned short checksum;
+ unsigned short urgPointer;
+} TCP_HDR;
+
+int main(int argc, char *argv[])
+{
+ char ip[100];
+ unsigned short portS, portD;
+ char trame[4096];
+ char *donnees = NULL;
+ unsigned int option;
+
+
+ WSAData wsa;
+ if(WSAStartup(MAKEWORD(2,2), &wsa) != 0)
+ {
+ printf("\n[!]Impossible d'acceder au reseau.\n--- Erreur avec
+WSAStartup() : %d\n\n", WSAGetLastError());
+ system("pause");
+ return 0;
+ }
+
+ SOCKET sock;
+ if((sock = socket(AF_INET, SOCK_RAW, IPPROTO_IP)) == INVALID_SOCKET)
+ {
+ printf("\n[!]Impossible de creer le socket.\n--- Erreur avec
+socket() : %d\n\n", WSAGetLastError());
+ system("pause");
+ return 0;
+ }
+
+
+ SOCKADDR_IN sin;
+ sin.sin_family = AF_INET;
+ sin.sin_addr.s_addr = inet_addr("192.168.0.11"); //Votre ip locale
+
+
+ if(bind(sock, (SOCKADDR*)&sin, sizeof(sin)) == SOCKET_ERROR)
+ {
+ printf("\n[!]Ecoute impossible.\n--- Erreur avec bind() : %d\n\n",
+WSAGetLastError());
+ closesocket(sock);
+ system("pause");
+ return 0;
+ }
+
+
+ DWORD dwBytesRet;
+
+WSAIoctl(sock,SIO_RCVALL,&option,sizeof(option),NULL,0,&dwBytesRet,NULL,NUL
+L);
+
+
+
+ iphdr *HeaderIP=(iphdr*)trame; // voila
+ tcphdr *HeaderTCP=(tcphdr*)(sizeof(iphdr)+trame);
+ donnees = (char *)(sizeof(tcphdr)+sizeof(iphdr)+trame);
+ char tmp[2048];
+
+ for(;;)
+ {
+
+ recv(sock, trame, sizeof(trame), 0);
+
+ printf("\n\n --------| Nouveau Packet |--------");
+ portS = ntohs(HeaderTCP->PortSource);
+ portD = ntohs(HeaderTCP->PortDest);
+ sprintf(ip,"%s:%d",inet_ntoa(*(struct in_addr *)&HeaderIP->Source),
+portS);
+ printf("\n [+]IP Source : %s",ip);
+ sprintf(ip,"%s:%d",inet_ntoa(*(struct in_addr *)&HeaderIP-
+>Destination), portD);
+ printf("\n [+]IP Destination : %s",ip);
+ printf("\n [+]IP Version : %d -> 0x%x", HeaderIP->Version,
+HeaderIP->Version);
+ printf("\n [+]IP Checksum : %d -> 0x%x", HeaderIP->Checksum,
+HeaderIP->Checksum);
+ printf("\n [+]Protocol : %d -> 0x%x", HeaderIP->Protocol,
+HeaderIP->Protocol);
+
+
+ memset(tmp, 0, sizeof(tmp));
+ for(int i = 0; i <= 2048; i++)
+ {
+ tmp[i] = donnees[i];
+ }
+ printf("\n\n -----* Donnees *----- \n\n%s\n
+[...]\n ------------------------------\n", tmp);
+
+ }
+ closesocket(sock);
+
+ system("PAUSE");
+ return EXIT_SUCCESS;
+}
+   
+   
+   
+   
+   
+   ```
 
 
 
