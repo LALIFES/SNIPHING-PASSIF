@@ -76,10 +76,11 @@ fonction main):
    ```#E4```![image](https://user-images.githubusercontent.com/96391221/146844007-47747c45-0348-43cc-9123-ddfc3c349804.png)
    ```#E5```![image](https://user-images.githubusercontent.com/96391221/146844175-8b233398-8423-46c4-8deb-554be33d7cbd.png)
 5) Ecrire une fonction qui permet d’afficher l’entête UDP et l’intégrer dans le code source du
-   sniffer (localiser udp.h dans /usr/include/netinet).   
+   sniffer (localiser udp.h dans /usr/include/netinet). 
+   ##udp.h
    ```cpp
    
-   #include <cstdlib>
+#include <cstdlib>
 #include <iostream>
 #include <winsock2.h>
 #include <windows.h>
