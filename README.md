@@ -71,6 +71,9 @@ fonction main):
 ![image](https://user-images.githubusercontent.com/96391221/146826258-16041179-e4a2-4ecd-9526-df68e21708d6.png)
 ![image](https://user-images.githubusercontent.com/96391221/146837556-eeb13d23-f750-474f-92c9-31cdf54ac7ca.png)
    ```Etape2```![image](https://user-images.githubusercontent.com/96391221/146843319-3e54904b-a0ed-4ded-b03a-f671c70fb9e0.png)
+   ```Etape3```![image](https://user-images.githubusercontent.com/96391221/146843614-9b7c96f8-bc5d-4a2f-85fe-a705f66f9e0e.png)
+![image](https://user-images.githubusercontent.com/96391221/146843690-4b4d6fd4-53ca-4407-8e77-db076772afe9.png)
+
 
    
 
