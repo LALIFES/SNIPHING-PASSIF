@@ -45,9 +45,33 @@ fonction main):
  - La fonction ParseData qui permet d’afficher les données sous format hexadécimal
 ## Manipulations a faire (sous LINUX)
   1) Compiler (cc -c sniffer_eth_ip_tcp_data.c) le code source et générer l’exécutable (cc
-  sniffer_eth_ip_tcp_data.c – o sniffer).
-  ***
+     sniffer_eth_ip_tcp_data.c – o sniffer).
+  
   ![image](https://user-images.githubusercontent.com/96391221/146825323-a1453193-fd50-443e-9fea-e56bc5a4e151.png)
+  ![image](https://user-images.githubusercontent.com/96391221/146825671-6545b60f-d53c-408d-8276-744dfb29b5ea.png)
+
+  ****
+  2) Exécuter (en mode root : « sudo commande » sous ubuntu) le sniffer (exemple : pour sniffer
+     les 100 premières trames reçu sur l’interface eth0 tapez ./sniffer eth0 100). Vous pouvez
+     utiliser wlan0 à la place de eth0 si vous êtes connecté en sans fil (les trames Wifi sont
+     traduites en ETHERNET) ou lo (loopback) si vous n'avez aucune
+     connexion. Si rien ne s’affiche, cela veut dire que vous n’êtes pas en train de recevoir des
+     paquets, exécuter alors (dans une nouvelle fenêtre) un ping vers une autre machine et
+     consulter de nouveau le résultat du sniffer.
+     ![image](https://user-images.githubusercontent.com/96391221/146825796-9db7ed5b-e746-4ca5-ae16-f854eb1de4cd.png)
+***
+3) Dans la manipulation précédente, les trames sont affichées sous format hexadécimal. Pour
+   afficher le contenu de l’entête ETHERNET, il faut enlever le commentaire de la fonction
+   ParseEthernetHeader, recompiler, régénérer l’exécutable et refaire l’étape 2).
+4) Pour Afficher le contenu des entêtes des protocoles des niveaux supérieurs, enlevez les
+   commentaires des fonctions correspondantes (au niveau de la fonction main), recompiler,
+   régénérer l’exécutable et exécuter de nouveau le sniffer. Pensez à faire un échange de trafic
+   TCP (en utilisant par exemple le serveur vsftpd ou en se connectant à Internet).  
+   *** Etape1***
+![image](https://user-images.githubusercontent.com/96391221/146826258-16041179-e4a2-4ecd-9526-df68e21708d6.png)
+   
+   
+     
 
 
 
