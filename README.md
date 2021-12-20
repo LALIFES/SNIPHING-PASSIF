@@ -11,14 +11,17 @@ Le tableau 1 présente une comparaison de quelques sniffers (GUI : graphical Use
 CLI : Command Line Interface)
 ***
 ![image](https://user-images.githubusercontent.com/96391221/146802720-f233c4ab-9d1b-422f-9e87-8d889f4a9f35.png)
+****
 1- Objectifs de ce TP:
-
+**
   - Implémenter un sniffer passif simple
 - Manipuler des logiciels de sniffing
 2- Outils logiciels:
+**
   Linux, wireshark, compilateur cc ou gcc
   
 3- Informations utiles :
+**
  - Les cartes réseau fonctionnent en deux modes
 o mode normal (mode par défaut) : permet à une carte de filtrer les trames reçus
 en fonction de l'adresse MAC destination
